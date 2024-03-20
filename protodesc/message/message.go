@@ -122,3 +122,27 @@ func (d *Descriptor) IsEmptyField() bool {
 func (d *Descriptor) Descriptor() *descriptorpb.DescriptorProto {
 	return d.desc
 }
+
+// OneofDescriptor describes a oneof.
+type OneofDescriptor struct {
+	desc *descriptorpb.OneofDescriptorProto
+}
+
+// NewOneofDescriptor returns the new named [*OneofDescriptor].
+func NewOneofDescriptor(name string) *OneofDescriptor {
+	return &OneofDescriptor{
+		desc: &descriptorpb.OneofDescriptorProto{
+			Name: proto.String(name),
+		},
+	}
+}
+
+// GetName gets the oneof name.
+func (d *OneofDescriptor) GetName() string {
+	return d.desc.GetName()
+}
+
+// Descriptor returns the oneof descriptor.
+func (d *OneofDescriptor) Descriptor() *descriptorpb.OneofDescriptorProto {
+	return d.desc
+}
