@@ -11,3 +11,8 @@ import (
 type Descriptor struct {
 	desc *descriptorpb.OneofDescriptorProto
 }
+
+// Descriptor returns the oneof descriptor.
+func (d *Descriptor) Descriptor() *descriptorpb.OneofDescriptorProto {
+	return d.desc
+}
